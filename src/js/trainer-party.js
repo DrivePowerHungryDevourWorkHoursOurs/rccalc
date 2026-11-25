@@ -399,6 +399,31 @@ $(function () {
     if (/megaz$/.test(toID(species))) return pa;
     return paFirst(species) ? pa.concat(showdownUrls(species)) : showdownUrls(species).concat(pa);
   }
+  // ---- local icons: src/img/Pokemon/<showdown id>.png, e.g. "ninetales-alola.png", "mrmime.png", "hooh.png" ----
+  var LOCAL_POKEMON_BASES = [
+    "img/Pokemon/",
+    "https://raw.githubusercontent.com/DrivePowerHungryDevourWorkHoursOurs/lucycalc/main/src/img/Pokemon/"
+  ];
+  // Species whose own name contains a hyphen (Showdown writes them without it: "Porygon-Z" -> "porygonz")
+  var HYPHEN_BASES = ["ho-oh", "porygon-z", "jangmo-o", "hakamo-o", "kommo-o", "nidoran-f", "nidoran-m",
+                      "wo-chien", "chien-pao", "ting-lu", "chi-yu"];
+  // Showdown sprite id: toID(base species) + "-" + toID(forme)  ("Ninetales-Alola" -> "ninetales-alola")
+  function showdownSpriteId(species) {
+    var name = String(species), low = name.toLowerCase();
+    for (var i = 0; i < HYPHEN_BASES.length; i++) {
+      var b = HYPHEN_BASES[i];
+      if (low === b) return toID(b);
+      if (low.indexOf(b + "-") === 0) return toID(b) + "-" + toID(name.substring(b.length + 1));
+    }
+    var dash = name.indexOf("-");
+    if (dash < 0) return toID(name);
+    return toID(name.substring(0, dash)) + "-" + toID(name.substring(dash + 1));
+  }
+  function localPokemonUrls(species) {
+    var id = showdownSpriteId(species), urls = [];
+    LOCAL_POKEMON_BASES.forEach(function (b) { urls.push(b + id + ".png"); });
+    return urls;
+  }
   // Party cards use the small sprites from github.com/May8th1995/sprites (flat folder,
   // files named exactly like the species, e.g. "Geodude-Alola.png"), then PokeAPI Box & Party icons,
   // then PokeAPI Champions icons, then Showdown.
@@ -406,7 +431,10 @@ $(function () {
   function partySpriteUrls(species) {
     var may = [MINISPRITE_BASE + encodeURIComponent(species) + ".png"];
     var pa = pokeapiUrls(species, PA_BOX_PARTY.concat(PA_CHAMPIONS));
-    return (paFirst(species) ? pa.concat(may) : may.concat(pa)).concat(showdownUrls(species));
+    // Your own icons in src/img/Pokemon (Showdown-style file names) are always tried first
+    return localPokemonUrls(species)
+      .concat(paFirst(species) ? pa.concat(may) : may.concat(pa))
+      .concat(showdownUrls(species));
   }
   // `urls` is an array, or a function returning one (re-evaluated if the PokeAPI table loads late)
   var spriteSeq = 0;
