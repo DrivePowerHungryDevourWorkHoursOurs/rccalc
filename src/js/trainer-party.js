@@ -13,6 +13,7 @@ $(function () {
   // then PokeAPI/sprites. Z-Crystals use the "<name>-z--bag" icons on PokeAPI.
   // Tried in order: relative to the page, then the repo's raw files (works wherever the page is hosted).
   var LOCAL_ITEM_BASES = [
+    "img/Items/",
     "src/img/Items/",
     "https://raw.githubusercontent.com/DrivePowerHungryDevourWorkHoursOurs/lucycalc/main/src/img/Items/"
   ];
@@ -396,8 +397,10 @@ $(function () {
   // Large sprite: Showdown first, then PokeAPI gen 5 front. Names ending in "megaz" skip Showdown.
   function spriteUrls(species) {
     var pa = pokeapiUrls(species, PA_FRONT);
-    if (/megaz$/.test(toID(species))) return pa;
-    return paFirst(species) ? pa.concat(showdownUrls(species)) : showdownUrls(species).concat(pa);
+    var rest;
+    if (/megaz$/.test(toID(species))) rest = pa;
+    else rest = paFirst(species) ? pa.concat(showdownUrls(species)) : showdownUrls(species).concat(pa);
+    return localPokemonUrls(species).concat(rest); // src/img/Pokemon first
   }
   // ---- local icons: src/img/Pokemon/<showdown id>.png, e.g. "ninetales-alola.png", "mrmime.png", "hooh.png" ----
   var LOCAL_POKEMON_BASES = [
@@ -419,9 +422,13 @@ $(function () {
     if (dash < 0) return toID(name);
     return toID(name.substring(0, dash)) + "-" + toID(name.substring(dash + 1));
   }
+  // Tries your file name exactly as the species is written ("Absol-Mega-Z.png"), then the Showdown id ("absol-megaz.png")
   function localPokemonUrls(species) {
-    var id = showdownSpriteId(species), urls = [];
-    LOCAL_POKEMON_BASES.forEach(function (b) { urls.push(b + id + ".png"); });
+    var names = [String(species), showdownSpriteId(species)], urls = [];
+    names.forEach(function (n, i) {
+      if (names.indexOf(n) !== i) return; // skip duplicates
+      LOCAL_POKEMON_BASES.forEach(function (b) { urls.push(b + encodeURIComponent(n) + ".png"); });
+    });
     return urls;
   }
   // Party cards use the small sprites from github.com/May8th1995/sprites (flat folder,
