@@ -28,7 +28,8 @@ $(function () {
       "#battleNotes { float: none !important; clear: both; display: block; margin-left: auto; margin-right: auto; }" +
       "#battleNotes legend { cursor: pointer; }" +
       "#battleNotes legend:hover { text-decoration: underline; }" +
-      "#battleNotes textarea { width: 100%; box-sizing: border-box; height: 90px; resize: vertical; }" +
+      "#battleNotes textarea { width: 100%; box-sizing: border-box; height: 150px; resize: vertical; }" +
+      "body.field-collapsed #battleNotes textarea { height: 420px; }" +
       "#bnOverlay { position: fixed; inset: 0; background: rgba(0,0,0,.65); z-index: 99999; display: none;" +
       "  align-items: center; justify-content: center; }" +
       "#bnOverlay.open { display: flex; }" +
@@ -54,24 +55,30 @@ $(function () {
       "foresightL", "foresightR", "chargeL", "chargeR", "helpingHandL", "helpingHandR",
       "tailwindL", "tailwindR", "flowerGiftL", "flowerGiftR", "powerTrickL", "powerTrickR",
       "steelySpiritL", "steelySpiritR", "friendGuardL", "friendGuardR", "auroraVeilL", "auroraVeilR",
-      "batteryL", "batteryR", "powerSpotL", "powerSpotR", "switchingL", "switchingR"
+      "batteryL", "batteryR", "powerSpotL", "powerSpotR", "switchingL", "switchingR",
+      "exportL", "exportR", "exportBox"
     ];
 
     var $targets = $();
     function addTarget($el) { $targets = $targets.add($el); }
-    ids.forEach(function (id) {
-      addTarget($fp.find("#" + id));
-      addTarget($fp.find("label[for='" + id + "']"));
-    });
-    $fp.find("input[name='spikesL'], input[name='spikesR']").each(function () {
-      addTarget($(this));
-      if (this.id) addTarget($fp.find("label[for='" + this.id + "']"));
-    });
+    function collectTargets() {
+      $targets = $();
+      ids.forEach(function (id) {
+        addTarget($fp.find("#" + id));
+        addTarget($fp.find("label[for='" + id + "']"));
+      });
+      $fp.find("input[name='spikesL'], input[name='spikesR']").each(function () {
+        addTarget($(this));
+        if (this.id) addTarget($fp.find("label[for='" + this.id + "']"));
+      });
+    }
+    collectTargets();
 
     if ($targets.length) {
       var fpEl = $fp[0];
 
       function applyCollapse() {
+        collectTargets(); // picks up the Export Box button, which trainer-party.js adds
         $fp.find(".fn-hide").removeClass("fn-hide");
         $targets.addClass("fn-hide");
         // also hide wrappers (button groups, rows) that have nothing visible left in them
@@ -101,6 +108,7 @@ $(function () {
 
       var collapsed = lsGet(COLLAPSE_KEY) === "1";
       function render() {
+        $("body").toggleClass("field-collapsed", collapsed);
         if (collapsed) { applyCollapse(); $btn.text("Show More"); }
         else { removeCollapse(); $btn.text("Show Less"); }
       }
