@@ -129,7 +129,7 @@ $(function () {
     var $notes, $legend;
     if (tag === "fieldset") {
       $notes = $('<fieldset id="battleNotes"></fieldset>').attr("class", $ref.attr("class") || "");
-      $legend = $('<legend title="Click to open a larger editor">Battle Notes</legend>')
+      $legend = $('<legend align="center" title="Click to open a larger editor">Battle Notes</legend>')
         .attr("class", ie.$heading.attr("class") || "");
     } else {
       $notes = $('<div id="battleNotes"></div>').attr("class", $ref.attr("class") || "");
