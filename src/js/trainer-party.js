@@ -444,8 +444,6 @@ $(function () {
       .concat(showdownUrls(species));
   }
   // `urls` is an array, or a function returning one (re-evaluated if the PokeAPI table loads late)
-  // Every party-card icon is drawn at this size, whichever source it came from (edit to taste)
-  var PARTY_ICON_W = 32, PARTY_ICON_H = 32;
   var spriteSeq = 0;
   function loadSprite($img, urls) {
     var getUrls = typeof urls === "function" ? urls : function () { return urls; };
@@ -654,10 +652,7 @@ $(function () {
       var $card = $('<div class="tp-card"></div>')
         .toggleClass("tp-active", active)
         .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
-      loadSprite($('<img class="tp-icon" alt="">').css({
-        width: PARTY_ICON_W + "px", height: PARTY_ICON_H + "px", objectFit: "contain",
-        imageRendering: "pixelated", display: "block", margin: "0 auto"
-      }).appendTo($card), function () { return partySpriteUrls(e.species); });
+      loadSprite($('<img class="tp-icon" alt="">').appendTo($card), function () { return partySpriteUrls(e.species); });
       $('<div class="tp-name"></div>').text(e.species)
         .css({ wordBreak: "normal", overflowWrap: "normal" })
         .appendTo($card);
