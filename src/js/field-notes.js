@@ -25,6 +25,7 @@ $(function () {
     .text(
       ".fn-hide { display: none !important; }" +
       "#fieldToggle { display: block; width: 100%; margin: 6px 0; cursor: pointer; font-size: 12px; }" +
+      "#battleNotes { float: none !important; clear: both; display: block; margin-left: auto; margin-right: auto; }" +
       "#battleNotes legend { cursor: pointer; }" +
       "#battleNotes legend:hover { text-decoration: underline; }" +
       "#battleNotes textarea { width: 100%; box-sizing: border-box; height: 90px; resize: vertical; }" +
