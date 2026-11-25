@@ -444,6 +444,8 @@ $(function () {
       .concat(showdownUrls(species));
   }
   // `urls` is an array, or a function returning one (re-evaluated if the PokeAPI table loads late)
+  // Largest size a Trainer Party icon is shown at (smaller sprites stay at their own size)
+  var ICON_MAX_W = 40, ICON_MAX_H = 32;
   var spriteSeq = 0;
   function loadSprite($img, urls) {
     var getUrls = typeof urls === "function" ? urls : function () { return urls; };
@@ -652,7 +654,11 @@ $(function () {
       var $card = $('<div class="tp-card"></div>')
         .toggleClass("tp-active", active)
         .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
-      loadSprite($('<img class="tp-icon" alt="">').appendTo($card), function () { return partySpriteUrls(e.species); });
+      var $icon = $('<img class="tp-icon" alt="">').appendTo($card);
+      // Cap every icon to the same box and never upscale, so a big local sprite ends up the same size as the small ones
+      [["width", "auto"], ["height", "auto"], ["max-width", ICON_MAX_W + "px"], ["max-height", ICON_MAX_H + "px"], ["object-fit", "contain"]]
+        .forEach(function (r) { $icon[0].style.setProperty(r[0], r[1], "important"); });
+      loadSprite($icon, function () { return partySpriteUrls(e.species); });
       $('<div class="tp-name"></div>').text(e.species)
         .css({ wordBreak: "normal", overflowWrap: "normal" })
         .appendTo($card);
