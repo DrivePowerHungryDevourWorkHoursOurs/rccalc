@@ -394,13 +394,13 @@ $(function () {
     return id ? bases.map(function (b) { return b + id + ".png"; }) : [];
   }
 
-  // Large sprite: Showdown first, then PokeAPI gen 5 front. Names ending in "megaz" skip Showdown.
+  // Large sprite: Showdown first, then PokeAPI gen 5 front. (Local src/img/Pokemon icons are for the Trainer Party cards only.) Names ending in "megaz" skip Showdown.
   function spriteUrls(species) {
     var pa = pokeapiUrls(species, PA_FRONT);
     var rest;
     if (/megaz$/.test(toID(species))) rest = pa;
     else rest = paFirst(species) ? pa.concat(showdownUrls(species)) : showdownUrls(species).concat(pa);
-    return localPokemonUrls(species).concat(rest); // src/img/Pokemon first
+    return rest; // the big sprite never uses src/img/Pokemon (those are party icons only)
   }
   // ---- local icons: src/img/Pokemon/<showdown id>.png, e.g. "ninetales-alola.png", "mrmime.png", "hooh.png" ----
   var LOCAL_POKEMON_BASES = [
@@ -444,6 +444,8 @@ $(function () {
       .concat(showdownUrls(species));
   }
   // `urls` is an array, or a function returning one (re-evaluated if the PokeAPI table loads late)
+  // Every party-card icon is drawn at this size, whichever source it came from (edit to taste)
+  var PARTY_ICON_W = 32, PARTY_ICON_H = 32;
   var spriteSeq = 0;
   function loadSprite($img, urls) {
     var getUrls = typeof urls === "function" ? urls : function () { return urls; };
@@ -604,7 +606,10 @@ $(function () {
         if ($selector.val() !== full) return; // user moved on
         var got = ($box.find(".move-selector").first().val() || "").trim();
         if (got === want) return;
+        // Re-firing the set change resets every crit box, so keep whatever the user has ticked since
+        var crits = $box.find(".move-crit").map(function () { return this.checked; }).get();
         fireSetChange();
+        $box.find(".move-crit").each(function (i) { if (crits[i] !== undefined) this.checked = crits[i]; });
         verifyLoaded(entry, full, attempt + 1);
       }, 150);
     }
@@ -649,7 +654,10 @@ $(function () {
       var $card = $('<div class="tp-card"></div>')
         .toggleClass("tp-active", active)
         .attr("title", e.species + " (" + e.setName + ")" + ((e.set.moves || []).length ? "\n" + e.set.moves.join(", ") : ""));
-      loadSprite($('<img class="tp-icon" alt="">').appendTo($card), function () { return partySpriteUrls(e.species); });
+      loadSprite($('<img class="tp-icon" alt="">').css({
+        width: PARTY_ICON_W + "px", height: PARTY_ICON_H + "px", objectFit: "contain",
+        imageRendering: "pixelated", display: "block", margin: "0 auto"
+      }).appendTo($card), function () { return partySpriteUrls(e.species); });
       $('<div class="tp-name"></div>').text(e.species)
         .css({ wordBreak: "normal", overflowWrap: "normal" })
         .appendTo($card);
