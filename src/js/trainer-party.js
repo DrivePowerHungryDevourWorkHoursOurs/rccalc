@@ -963,7 +963,8 @@ $(function () {
     function isUserTarget(t) {
       var $t = $(t);
       if ($t.closest(".trainer-party").length) return false; // cards / nav buttons only load sets
-      return $t.closest($box).length > 0 || $t.closest(".select2-drop, .select2-drop-mask").length > 0;
+      // .ib-overlay is the item bag popup (item-bag.js); it lives on <body>, outside the Pokemon panel
+      return $t.closest($box).length > 0 || $t.closest(".select2-drop, .select2-drop-mask, .ib-overlay").length > 0;
     }
     ["pointerdown", "mousedown", "touchstart", "keydown", "input", "change", "wheel"].forEach(function (n) {
       document.addEventListener(n, function (ev) {
