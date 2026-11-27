@@ -542,6 +542,7 @@ const SV = SS.concat(
     'Punching Glove',
     'Lustrous Globe',
     'Griseous Core',
+    'Sawsbuck Coffee',
     'Strange Ball',
     'Syrupy Apple',
     'Unremarkable Teacup',
