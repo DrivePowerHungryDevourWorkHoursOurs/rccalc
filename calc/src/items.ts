@@ -324,6 +324,7 @@ const FLING_10 = new Set([
   'Ring Target',
   'Rock Incense',
   'Rose Incense',
+  'Sawsbuck Coffee',
   'Sea Incense',
   'Shed Shell',
   'Silk Scarf',
