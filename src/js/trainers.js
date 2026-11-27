@@ -940,7 +940,7 @@ var TRAINER_SETS_SV = {
   "Zapdos": {
     "Lvl 87 Gym Leader Chad Rematch (Optional)": {
       "slot": 2, "level": 87, "ability": "Static", "item": "Rocky Helmet", "nature": "Bold",
-      "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":30},
+      "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":30},
       "evs": {"hp":252,"at":0,"df":184,"sa":0,"sd":0,"sp":72},
       "moves": ["Discharge", "Heat Wave", "Hidden Power Ice", "Roost"]
     }
@@ -1585,7 +1585,7 @@ var TRAINER_SETS_SV = {
     "moves": ["Rapid Spin", "Tera Starstorm", "Calm Mind", "Flamethrower"]
   }
 },
-"Kyogre-Primal": {
+"Kyogre": {
   "Lvl 100 Jahim (VR Doubles)": {
     "slot": 0, "level": 100, "ability": "Primordial Sea", "item": "Blue Orb", "nature": "Modest",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1593,9 +1593,17 @@ var TRAINER_SETS_SV = {
     "moves": ["Origin Pulse", "Thunder", "Ice Beam", "Hydro Pump"]
   }
 },
+"Kyogre-Primal": {
+  "Lvl 100 Jahim (VR Doubles)": {
+    "slot": 1, "level": 100, "ability": "Primordial Sea", "item": "Blue Orb", "nature": "Modest",
+    "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":0,"df":4,"sa":252,"sd":0,"sp":252},
+    "moves": ["Origin Pulse", "Thunder", "Ice Beam", "Hydro Pump"]
+  }
+},
 "Urshifu-Rapid-Strike": {
   "Lvl 100 Jahim (VR Doubles)": {
-    "slot": 1, "level": 100, "ability": "Unseen Fist", "item": "Choice Scarf", "nature": "Adamant",
+    "slot": 2, "level": 100, "ability": "Unseen Fist", "item": "Choice Scarf", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
     "moves": ["Surging Strikes", "Close Combat", "Zen Headbutt", "U-turn"]
@@ -1603,7 +1611,7 @@ var TRAINER_SETS_SV = {
 },
 "Chien-Pao": {
   "Lvl 100 Jahim (VR Doubles)": {
-    "slot": 2, "level": 100, "ability": "Sword of Ruin", "item": "Focus Sash", "nature": "Jolly",
+    "slot": 3, "level": 100, "ability": "Sword of Ruin", "item": "Focus Sash", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
     "moves": ["Icicle Crash", "Crunch", "Sacred Sword", "Sucker Punch"]
@@ -1611,7 +1619,7 @@ var TRAINER_SETS_SV = {
 },
 "Salamence#3": {
   "Lvl 100 Jahim (VR Doubles)": {
-    "slot": 3, "level": 100, "ability": "Intimidate", "item": "Salamencite", "nature": "Jolly",
+    "slot": 4, "level": 100, "ability": "Intimidate", "item": "Salamencite", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
     "moves": ["Double-Edge", "Dragon Claw", "Temper Flare", "Tailwind"]
@@ -1619,7 +1627,7 @@ var TRAINER_SETS_SV = {
 },
 "Salamence-Mega#3": {
   "Lvl 100 Jahim (VR Doubles)": {
-    "slot": 3, "level": 100, "ability": "Aerilate", "item": "Salamencite", "nature": "Jolly",
+    "slot": 5, "level": 100, "ability": "Aerilate", "item": "Salamencite", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
     "moves": ["Double-Edge", "Dragon Claw", "Temper Flare", "Tailwind"]
@@ -1627,7 +1635,7 @@ var TRAINER_SETS_SV = {
 },
 "Rillaboom": {
   "Lvl 100 Jahim (VR Doubles)": {
-    "slot": 4, "level": 100, "ability": "Grassy Surge", "item": "Assault Vest", "nature": "Adamant",
+    "slot": 6, "level": 100, "ability": "Grassy Surge", "item": "Assault Vest", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":252,"at":200,"df":0,"sa":0,"sd":0,"sp":56},
     "moves": ["Fake Out", "Grassy Glide", "Wood Hammer", "High Horsepower"]
@@ -1635,13 +1643,13 @@ var TRAINER_SETS_SV = {
 },
 "Zacian-Crowned": {
   "Lvl 100 Jahim (VR Doubles)": {
-    "slot": 5, "level": 100, "ability": "Intrepid Sword", "item": "Rusted Sword", "nature": "Jolly",
+    "slot": 7, "level": 100, "ability": "Intrepid Sword", "item": "Rusted Sword", "nature": "Jolly",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":252,"df":0,"sa":0,"sd":4,"sp":252},
     "moves": ["Behemoth Blade", "Play Rough", "Close Combat", "Wild Charge"]
   }
 },
-"Groudon-Primal": {
+"Groudon": {
   "Lvl 100 Obama Prism (VR Doubles)": {
     "slot": 0, "level": 100, "ability": "Desolate Land", "item": "Red Orb", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
@@ -1649,9 +1657,17 @@ var TRAINER_SETS_SV = {
     "moves": ["Precipice Blades", "Heat Crash", "High Horsepower", "Stone Edge"]
   }
 },
+"Groudon-Primal": {
+  "Lvl 100 Obama Prism (VR Doubles)": {
+    "slot": 1, "level": 100, "ability": "Desolate Land", "item": "Red Orb", "nature": "Adamant",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
+    "moves": ["Precipice Blades", "Heat Crash", "High Horsepower", "Stone Edge"]
+  }
+},
 "Flutter Mane#2": {
   "Lvl 100 Obama Prism (VR Doubles)": {
-    "slot": 1, "level": 100, "ability": "Protosynthesis", "item": "Booster Energy", "nature": "Timid",
+    "slot": 2, "level": 100, "ability": "Protosynthesis", "item": "Booster Energy", "nature": "Timid",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":0,"sp":252},
     "moves": ["Moonblast", "Icy Wind", "Shadow Ball", "Taunt"]
@@ -1659,7 +1675,7 @@ var TRAINER_SETS_SV = {
 },
 "Urshifu#2": {
   "Lvl 100 Obama Prism (VR Doubles)": {
-    "slot": 2, "level": 100, "ability": "Unseen Fist", "item": "Focus Sash", "nature": "Adamant",
+    "slot": 3, "level": 100, "ability": "Unseen Fist", "item": "Focus Sash", "nature": "Adamant",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":4,"at":252,"df":0,"sa":0,"sd":0,"sp":252},
     "moves": ["Wicked Blow", "Close Combat", "U-turn", "Sucker Punch"]
@@ -1667,7 +1683,7 @@ var TRAINER_SETS_SV = {
 },
 "Zapdos#3": {
   "Lvl 100 Obama Prism (VR Doubles)": {
-    "slot": 3, "level": 100, "ability": "Static", "item": "Sitrus Berry", "nature": "Timid",
+    "slot": 4, "level": 100, "ability": "Static", "item": "Sitrus Berry", "nature": "Timid",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":252,"at":0,"df":4,"sa":0,"sd":0,"sp":252},
     "moves": ["Volt Switch", "Tailwind", "Hurricane", "Thunder Wave"]
@@ -1675,7 +1691,7 @@ var TRAINER_SETS_SV = {
 },
 "Delphox": {
   "Lvl 100 Obama Prism (VR Doubles)": {
-    "slot": 4, "level": 100, "ability": "Magician", "item": "Delphoxite", "nature": "Modest",
+    "slot": 5, "level": 100, "ability": "Magician", "item": "Delphoxite", "nature": "Modest",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
     "moves": ["Heat Wave", "Fire Blast", "Psychic", "Focus Blast"]
@@ -1683,7 +1699,7 @@ var TRAINER_SETS_SV = {
 },
 "Delphox-Mega": {
   "Lvl 100 Obama Prism (VR Doubles)": {
-    "slot": 4, "level": 100, "ability": "Levitate", "item": "Delphoxite", "nature": "Modest",
+    "slot": 6, "level": 100, "ability": "Levitate", "item": "Delphoxite", "nature": "Modest",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":0,"df":0,"sa":252,"sd":4,"sp":252},
     "moves": ["Heat Wave", "Fire Blast", "Psychic", "Focus Blast"]
@@ -1691,7 +1707,7 @@ var TRAINER_SETS_SV = {
 },
 "Eternatus": {
   "Lvl 100 Obama Prism (VR Doubles)": {
-    "slot": 5, "level": 100, "ability": "Pressure", "item": "Dragonium Z", "nature": "Timid",
+    "slot": 7, "level": 100, "ability": "Pressure", "item": "Dragonium Z", "nature": "Timid",
     "ivs": {"hp":31,"at":0,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":4,"at":0,"df":0,"sa":252,"sd":0,"sp":252},
     "moves": ["Dynamax Cannon", "Fire Blast", "Sludge Bomb", "Draco Meteor"]
@@ -2569,9 +2585,17 @@ var TRAINER_SETS_SV = {
     "moves": ["Astral Barrage", "Psychic", "Pollen Puff", "Nasty Plot"]
   }
 },
-"Groudon-Primal#2": {
+"Groudon#2": {
   "Lvl 100 Champion Brad (Singles)": {
     "slot": 6, "level": 100, "ability": "Desolate Land", "item": "Red Orb", "nature": "Naive",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":8,"df":0,"sa":248,"sd":0,"sp":252},
+    "moves": ["Precipice Blades", "Fire Blast", "Solar Beam", "Ancient Power"]
+  }
+},
+"Groudon-Primal#2": {
+  "Lvl 100 Champion Brad (Singles)": {
+    "slot": 7, "level": 100, "ability": "Desolate Land", "item": "Red Orb", "nature": "Naive",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":8,"df":0,"sa":248,"sd":0,"sp":252},
     "moves": ["Precipice Blades", "Fire Blast", "Solar Beam", "Ancient Power"]
@@ -2617,9 +2641,17 @@ var TRAINER_SETS_SV = {
     "moves": ["Dark Pulse", "Thunder", "Ice Beam", "Nasty Plot"]
   }
 },
-"Kyogre-Primal#2": {
+"Kyogre#2": {
   "Lvl 100 Champion Lando (Singles)": {
     "slot": 5, "level": 100, "ability": "Primordial Sea", "item": "Blue Orb", "nature": "Hasty",
+    "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
+    "evs": {"hp":0,"at":4,"df":0,"sa":252,"sd":0,"sp":252},
+    "moves": ["Origin Pulse", "Liquidation", "Thunder", "Blizzard"]
+  }
+},
+"Kyogre-Primal#2": {
+  "Lvl 100 Champion Lando (Singles)": {
+    "slot": 6, "level": 100, "ability": "Primordial Sea", "item": "Blue Orb", "nature": "Hasty",
     "ivs": {"hp":31,"at":31,"df":31,"sa":31,"sd":31,"sp":31},
     "evs": {"hp":0,"at":4,"df":0,"sa":252,"sd":0,"sp":252},
     "moves": ["Origin Pulse", "Liquidation", "Thunder", "Blizzard"]
