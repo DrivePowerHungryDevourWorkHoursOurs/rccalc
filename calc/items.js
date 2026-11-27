@@ -325,6 +325,7 @@ var FLING_10 = new Set([
     'Smooth Rock',
     'Soft Sand',
     'Soothe Bell',
+    'Sawsbuck Coffee',
     'Star Sweet',
     'Strawberry Sweet',
     'Wave Incense',
